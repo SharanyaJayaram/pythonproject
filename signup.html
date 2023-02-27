@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Anime</title>
+    </head>
+    <body>
+        <style>
+          body{
+          margin:0;
+          padding:0;
+          background-image:url('https://wallpapers-hub.art/wallpaper-images/550856.jpg');
+          background-position:center;
+          background-size:cover;
+          font-family:fantasy;
+          }
+        </style>
+        <header class="head-main">
+            <h1>Signup Form</h1>
+        </header>
+        <main>
+          <div class="container">
+            <form class="my-form" method="POST" action="signup.php">
+                <div class="form-grp">
+                  <label>FirstName:</label>
+                  <input class="i-input" type="text"name="Firstname" placeholder="Firstname" id="Firstname">
+                </div>
+                <div class="form-grp">
+                    <label>LastName:</label>
+                    <input class="i-input" type="text"name="Lastname" placeholder="Lastname" id="Lastname">
+                  </div>
+                <div class="form-grp">
+                      <label>Email:</label>
+                      <input type="text"name="email" placeholder="Email" id="Email">
+                </div>
+                <div class="form-grp">
+                  <label>Phone:</label>
+                  <input type="number"name="Phone" placeholder="Phone" id="Phone">
+            </div>
+                <div class="form-grp">
+                    <label>Choose password:</label>
+                    <input type="password" name="password" placeholder="Password" id="Password">
+                  </div>
+                <div class="form-grp">
+                  <label>Confirm password:</label>
+                  <input type="password" name="password" placeholder="Confirm password">
+                </div>
+                <br>
+                <div  class="button">
+                    <input class="button"type="submit"value="submit"name=" ">
+                </div>
+                <a href="login.html" style="color: plum;">Already a User? Login</a>
+            </form>
+          </div>
+        </main>
+      </body>
+    </head>
+</html>
+<style>
+*{
+  box-sizing: border-box;
+  font-family:sans-serif;
+}
+.head-main{
+  color:cornsilk;
+  text-align: left;
+  margin-left: 260px;
+  width: 100%;
+  font-family:sans-serif;
+}
+.container{
+  width: 500px;
+  margin: 50px 100px;
+  
+}
+.my-form{
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  opacity: 75%;
+  padding-left: 150px;
+  padding-right: 150px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.my-form label{
+  border-radius: 10px;
+  display: block;
+  padding-bottom: 5px;
+  color:cornsilk;
+}
+.form-grp{
+  padding-bottom: 10px;
+}
+.my-form input{
+  border-radius: 5px;
+  padding: 8px;
+  border: .1em solid #777777 ;
+}
+.i-input:focus{
+  border-color:black;
+  outline: width 1;
+}
+.button {
+  border-radius: 5px;
+background-color: dodgerblue;
+padding-left: 1px;
+padding-right: 1px;
+width:100px
+}
+</style>
