@@ -6,10 +6,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
 </head>
+<style>    
+    body {
+    margin: 0;
+    padding: 0;
+    background:url('https://cdn.wallpapersafari.com/75/6/M4y73P.jpg');
+    background-position:center;
+    background-attachment: fixed;
+    background-size:cover;
+    background-repeat: no-repeat;
+    font-family: sans-serif;
+    background-color: #e1e1e1;
+    }
+    .container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    }
+    h1 {
+        font-size: 2rem;
+        margin-top: 50px;
+        margin-bottom: 30px;
+    }
+    .btn {
+        display: inline-block;
+        background-color: #008CBA;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        margin: 60px;
+        font-size: 1.2rem;
+        cursor: pointer;
+    }
+    .btn:hover {
+        background-color: #006B87;
+    }
+    </style>  
 <body>
 
     {% for message in messages %}
-    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert" style="color: #050303; text-align: center;">
         <strong>Message:</strong> {{ message }}
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times</span>
