@@ -1,7 +1,8 @@
 FROM python
 WORKDIR /root/Basic_signup/app
-# RUN apt install python-pip -y 
-RUN apt-get install python3-pip python-dev
+RUN sudo add-apt-repository universe
+RUN sudo apt-get update
+RUN sudo apt-get install python3-pip
 RUN pip install django 
 RUN python manage.py makemigrations 
 RUN python manage.py migrate
