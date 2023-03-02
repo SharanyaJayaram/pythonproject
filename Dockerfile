@@ -2,7 +2,8 @@ FROM python:3.10
 RUN apt-get update
 RUN pip install --upgrade pip
 RUN pip install django
-COPY manage.py
+WORKDIR /root/Basic_signup/app
+COPY manage.py ./
 RUN python3 manage.py makemigrations
 RUN python3 manage.py migrate
 EXPOSE 8000
