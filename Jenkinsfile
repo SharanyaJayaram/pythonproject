@@ -27,8 +27,8 @@ pipeline {
     stage('Deploy Image') {
       steps{
 
-          withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'dockerhubPassword', usernameVariable: 'dockerhubUser')]) {
-            sh "docker login -u ${env.dockerhubUser} -p ${env.dockerhubPassword}"
+          withCredentials([usernamePassword(credentialsId: 'dockerid', passwordVariable: 'dockeridPassword', usernameVariable: 'dockeridUser')]) {
+            sh "docker login -u ${env.dockeridUser} -p ${env.dockeridPassword}"
             sh 'docker push sharanyajayaram/trialpython:latest'
             sh "docker pull sharanyajayaram/trialpython:latest"
 	    sh "docker run -d -t -p 8000:8000 --name trialcont${BUILD_NUMBER} sharanyajayaram/trialpython:latest"
