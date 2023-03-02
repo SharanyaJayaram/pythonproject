@@ -1,4 +1,4 @@
-FROM python:3.10.8
+FROM python3
 WORKDIR /root/Basic_signup/app
 RUN apt install python3-pip -y 
 RUN pip install django 
