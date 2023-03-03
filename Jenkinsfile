@@ -47,10 +47,5 @@ pipeline {
 	    
       }
     }
-	  post{
-		  success{
-			  echo "Container is up and running"
-		  }
-	  }
           }
       }
