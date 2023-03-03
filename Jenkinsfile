@@ -27,7 +27,6 @@ pipeline {
     stage('Deploy Image to dockerhub') {
       steps{
 	      script{
-	      sh "docker system prune -af "
           withCredentials([usernamePassword(credentialsId: 'dockerid', passwordVariable: 'dockeridPassword', usernameVariable: 'dockeridUser')]) {
             sh "docker login -u ${env.dockeridUser} -p ${env.dockeridPassword}"
 	    dockerImage.push("latest")
@@ -42,6 +41,7 @@ pipeline {
       sh "docker pull sharanyajayaram/trialpython:latest"
       sh "docker run -d -t -p 8000:8000 --name trialcont${BUILD_NUMBER} sharanyajayaram/trialpython:latest"
       sh "‍docker stop --time=60 trialcont${BUILD_NUMBER}"
+      sh "docker system prune -af "
 	      }
 	    
       }
