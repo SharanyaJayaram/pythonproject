@@ -40,8 +40,8 @@ pipeline {
 	      script{
       sh "docker pull sharanyajayaram/trialpython:latest"
       sh "docker run -d -t -p 8000:8000 --name trialcont${BUILD_NUMBER} sharanyajayaram/trialpython:latest"
-      sh "‍docker stop --time=60 trialcont${BUILD_NUMBER}"
-      sh "docker system prune -af "
+//       sh "‍docker stop --time=60 trialcont${BUILD_NUMBER}"
+//       sh "docker system prune -af "
 	      }
 	    
       }
