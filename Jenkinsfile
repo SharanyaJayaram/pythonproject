@@ -28,12 +28,11 @@ pipeline {
       steps{
 	      script{
 	      sh "docker system prune -af "
-	      dockerImage.push("latest")
-
-//           withCredentials([usernamePassword(credentialsId: 'dockerid', passwordVariable: 'dockeridPassword', usernameVariable: 'dockeridUser')]) {
-//             sh "docker login -u ${env.dockeridUser} -p ${env.dockeridPassword}"
+          withCredentials([usernamePassword(credentialsId: 'dockerid', passwordVariable: 'dockeridPassword', usernameVariable: 'dockeridUser')]) {
+            sh "docker login -u ${env.dockeridUser} -p ${env.dockeridPassword}"
+	    dockerImage.push("latest")
 //             sh 'docker push sharanyajayaram/trialpython:latest'
-//           }
+           }
 	      }
       }
     }
