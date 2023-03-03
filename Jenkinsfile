@@ -14,7 +14,7 @@ pipeline {
   stages {
     stage('Code checkout') {
       steps {
-       checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/SharanyaJayaram/Basic_signup.git']])
+       checkout scmGit(branches: [[name: '*/development_anusha']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/SharanyaJayaram/Basic_signup.git']])
       }
     }
       stage('Building image') {
