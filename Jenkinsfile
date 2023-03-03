@@ -26,6 +26,7 @@ pipeline {
     }
     stage('Deploy Image to dockerhub') {
       steps{
+	      script{
 	      sh "docker system prune -af "
 	      dockerImage.push("latest")
 
@@ -33,13 +34,16 @@ pipeline {
 //             sh "docker login -u ${env.dockeridUser} -p ${env.dockeridPassword}"
 //             sh 'docker push sharanyajayaram/trialpython:latest'
 //           }
+	      }
       }
     }
     stage('Run the container'){
       steps{
+	      script{
       sh "docker pull sharanyajayaram/trialpython:latest"
       sh "docker run -d -t -p 8000:8000 --name trialcont${BUILD_NUMBER} sharanyajayaram/trialpython:latest"
       sh "‍docker stop --time=60 trialcont${BUILD_NUMBER}"
+	      }
 	    
       }
     }
