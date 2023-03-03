@@ -24,16 +24,25 @@ pipeline {
         }
       }
     }
-    stage('Deploy Image') {
+    stage('Deploy Image to dockerhub') {
       steps{
 
           withCredentials([usernamePassword(credentialsId: 'dockerid', passwordVariable: 'dockeridPassword', usernameVariable: 'dockeridUser')]) {
             sh "docker login -u ${env.dockeridUser} -p ${env.dockeridPassword}"
             sh 'docker push sharanyajayaram/trialpython:latest'
-            sh "docker pull sharanyajayaram/trialpython:latest"
-	    sh "docker run -d -t -p 8000:8000 --name trialcont${BUILD_NUMBER} sharanyajayaram/trialpython:latest"
           }
       }
     }
-  }
-}
+    stage('Run the container'){
+      steps{
+      sh "docker pull sharanyajayaram/trialpython:latest"
+	    sh "docker run -d -t -p 8000:8000 --name trialcont${BUILD_NUMBER} sharanyajayaram/trialpython:latest"
+      }
+    }
+	  post{
+		  success{
+			  echo "Container is up and running"
+		  }
+	  }
+          }
+      }
