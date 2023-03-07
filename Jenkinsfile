@@ -37,9 +37,10 @@ pipeline {
     }
     stage('Run the container'){
       steps{
-      sh "docker pull sharanyajayaram/trialpython:latest"
-      sh "docker run -d -t -p 8000:8000 --name trialcont${BUILD_NUMBER} sharanyajayaram/trialpython:latest"
-      sh "‍docker stop --time=60 trialcont${BUILD_NUMBER}"
+      sh '''docker pull sharanyajayaram/trialpython:latest"
+      docker run -d -t -p 8000:8000 --name trialcont${BUILD_NUMBER} sharanyajayaram/trialpython:latest
+      docker stop --time=60 trialcont${BUILD_NUMBER}
+      docker system prune -af'''
 	    
       }
     }
