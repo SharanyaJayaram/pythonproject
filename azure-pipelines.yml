@@ -1,0 +1,37 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: python:3
+
+variables:
+    imagename: sharanyajayaram/trialpython
+    dockerImage: ''
+
+resources:
+  repositories:
+  - repository: https://github.com/SharanyaJayaram/Basic_signup.git
+    type: github
+
+jobs:
+- job: Codecheckout
+  steps:
+  - checkout: https://github.com/SharanyaJayaram/Basic_signup.git
+- job: Imagebuild
+  steps:
+  - script:  dockerImage = docker.build imagename
+- job: DeployImagetodockerhub
+  steps:
+  - script:  dockerImage.push("latest")
+- job: Runthecontainer
+  steps:
+  - script: 
+      docker pull sharanyajayaram/trialpython:latest
+      docker run -d -t -p 8000:8000 --name trialcont${BUILD_NUMBER} sharanyajayaram/trialpython:latest
+      docker stop --time=60 trialcont${BUILD_NUMBER}
+      docker system prune -af
