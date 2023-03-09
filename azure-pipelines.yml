@@ -15,13 +15,13 @@ variables:
 
 resources:
   repositories:
-  - repository: https://github.com/SharanyaJayaram/Basic_signup.git
+  - repository: Basic_signup
     type: github
 
 jobs:
 - job: Codecheckout
   steps:
-  - checkout: https://github.com/SharanyaJayaram/Basic_signup.git
+  - checkout: Basic_signup
 - job: Imagebuild
   steps:
   - script:  dockerImage = docker.build imagename
