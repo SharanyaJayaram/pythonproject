@@ -3,6 +3,11 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+resources:
+  repositories:
+  - repository: Basic_signup
+    type: github
+  
 trigger:
 - main
 
@@ -12,11 +17,6 @@ pool:
 variables:
     imagename: sharanyajayaram/trialpython
     dockerImage: ''
-
-resources:
-  repositories:
-  - repository: Basic_signup
-    type: github
 
 jobs:
 - job: Codecheckout
