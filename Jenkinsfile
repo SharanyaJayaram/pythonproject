@@ -1,6 +1,5 @@
 pipeline {
   environment {
-//     def sonarScanner = tool name: 'shasonar' , type: 'hudson.plugins.sonar.SonarRunnerInstallation'
     imagename = "sharanyajayaram/trialpython"
     dockerImage = ''
   }
@@ -26,13 +25,14 @@ pipeline {
     }
     stage('Deploy Image to dockerhub') {
       steps{
-	      sh "docker system prune -af "
-	      dockerImage.push("latest")
+        script{
+	      // dockerImage.push("latest")
 
-//           withCredentials([usernamePassword(credentialsId: 'dockerid', passwordVariable: 'dockeridPassword', usernameVariable: 'dockeridUser')]) {
-//             sh "docker login -u ${env.dockeridUser} -p ${env.dockeridPassword}"
-//             sh 'docker push sharanyajayaram/trialpython:latest'
-//           }
+          withCredentials([usernamePassword(credentialsId: 'dockerid', passwordVariable: 'dockeridPassword', usernameVariable: 'dockeridUser')]) {
+            sh "docker login -u ${env.dockeridUser} -p ${env.dockeridPassword}"
+            sh 'docker push sharanyajayaram/trialpython:latest'
+          }
+        }
       }
     }
     stage('Run the container'){
@@ -44,10 +44,5 @@ pipeline {
 	    
       }
     }
-	  post{
-		  success{
-			  echo "Container is up and running"
-		  }
-	  }
-          }
-      }
+    }
+    }
