@@ -21,7 +21,7 @@ variables:
 jobs:
 - job: Codecheckout
   steps:
-  - checkout: Basic_signup
+  - checkout: self
 - job: Imagebuild
   steps:
   - script:  dockerImage = docker.build imagename
