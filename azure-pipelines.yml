@@ -11,8 +11,8 @@
 trigger:
 - main
 
-pool:
-  vmImage: python:3
+# pool:
+#   vmImage: python:3
 
 variables:
     imagename: sharanyajayaram/trialpython
