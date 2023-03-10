@@ -24,9 +24,9 @@ jobs:
 - job: Docker
   steps:
   - task: Docker@2
-  inputs:
   pool:
   vmImage: python:3.8.11
+  inputs:
   repository: 'Basic_signup'
   command: 'build'
   Dockerfile: 'Basic_signup/Dockerfile'
