@@ -3,10 +3,10 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-resources:
-  repositories:
-  - repository: Basic_signup
-    type: github
+# resources:
+#   repositories:
+#   - repository: Basic_signup
+#     type: github
   
 trigger:
 - main
